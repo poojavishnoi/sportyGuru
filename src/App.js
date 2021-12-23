@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+import Header from './components/header';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 
 function App() {
@@ -20,7 +25,7 @@ function App() {
       .then(data => {
         let obj = [];
         for(let i=0; i < data.length; i++){
-          obj.push({'name':data[i].name, 'link':data[i].web_pages[0]})
+          obj.push({'name':data[i].name, 'link':data[i].web_pages[0], 'domain': data[i].domains[0]})
           
         }
         setDetails(obj)
@@ -33,6 +38,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <h1 className='header'>Universities in India</h1>
       <div className='university_link'>
 
@@ -41,9 +47,20 @@ function App() {
           detail => {
             return (
               <div>
-                <li className='list'>
-                <a href={detail.link} target={"_blank"} rel={'noopener noreferrer'}>{detail.name}</a>
-                </li>
+              <Card className='card'>
+              <CardActionArea>
+                
+              <CardContent>
+                  <Typography className='individual_card' sx={{maxWidth: 720, width: 720, }} gutterBottom variant="h5" component="div">
+                  <a href={detail.link} target={"_blank"} rel={'noopener noreferrer'}>{detail.name}</a>
+                  </Typography>
+                  
+                </CardContent>
+              </CardActionArea>
+            </Card>
+                
+                
+                
               </div>
             )
           
