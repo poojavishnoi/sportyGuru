@@ -68,3 +68,10 @@ li:hover{
   transition-duration: 0.5s;
   
 }
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  .App{
+    width: 100%;
+  }
+}
