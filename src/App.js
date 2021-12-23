@@ -47,9 +47,8 @@ function App() {
           detail => {
             return (
               <div>
-              <Card className='card'>
-              <CardActionArea>
-                
+              <Card className='card' >
+              <CardActionArea href={detail.link} target={"_blank"}  rel={'noopener noreferrer'}>
               <CardContent>
                   <Typography className='individual_card' sx={{maxWidth: 720, width: 720, }} gutterBottom variant="h5" component="div">
                   <a href={detail.link} target={"_blank"} rel={'noopener noreferrer'}>{detail.name}</a>
