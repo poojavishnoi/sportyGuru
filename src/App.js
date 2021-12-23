@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 
+
 function App() {
 
-  const url = 'http://universities.hipolabs.com/search?country=India'
   const [details, setDetails] = useState([])
 
   useEffect(() => {
-    fetch(url)
+    fetch('data.json' ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+
+    })
       .then(resp => {
         return resp.json()
       })
